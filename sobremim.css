@@ -1,0 +1,136 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    header {
+      background: linear-gradient(to right, #e50914, #1f1f1f);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    header img {
+      height: 70px;
+    }
+
+    header button {
+       margin-left: auto;
+      background-color: #ffffff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    header button a {
+      color: #e50914;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    header button:hover {
+      background-color: #f0f0f0;
+      transform: scale(1.05);
+    }
+
+    .intro, .sobre, .filmes-section, .projeto {
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding: 1.5rem;
+      background-color: #1f1f1f;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .intro h1, .sobre h2, .filmes-section h2, .projeto h2 {
+      font-size: 2rem;
+      color: #e50914;
+      margin-bottom: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .intro p, .sobre p, .projeto p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      color: #ddd;
+    }
+
+    .filmes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 1rem;
+    }
+
+    .card {
+      background-color: #2a2a2a;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    }
+
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card strong {
+      display: block;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .card span {
+      display: block;
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 0.3rem;
+    }
+
+    .card p {
+      font-size: 0.8rem;
+      color: #ddd;
+      padding: 0 0.5rem 0.5rem;
+    }
+
+    a {
+      color: #e50914;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+     text-align: center;
+      padding: 1.5rem;
+      background: linear-gradient(to top, #1f1f1f, #2a2a2a);
+      color: #888;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+    }

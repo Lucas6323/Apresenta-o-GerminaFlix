@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>FabFlix</title>
+  <link rel="shortcut icon" href="img/logo (2).jpg">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #121212, #0a0a0a);
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(to right, #e50914, #1f1f1f);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    header img {
+      height: 70px;
+    }
+
+    header button {
+      margin-left: auto;
+      background-color: #ffffff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    header button:hover {
+      background-color: #f0f0f0;
+      transform: scale(1.05);
+    }
+
+    header button a {
+      color: #e50914;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 2.5rem 0 1.5rem;
+      color: #e50914;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding: 1.5rem;
+      background-color: #1f1f1f;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .filmes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 1rem;
+    }
+
+    .card {
+      background: linear-gradient(to bottom, #2a2a2a, #1f1f1f);
+      border-radius: 12px;
+      overflow: hidden;
+      width: 220px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+      border: 1px solid #e50914;
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .card strong {
+      display: block;
+      margin: 0.8rem 0 0.4rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .card span {
+      display: block;
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+
+    .card a {
+      color: #e50914;
+      text-decoration: none;
+      display: block;
+      margin: 0.4rem 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .card a:hover {
+      color: #ff4d4d;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: linear-gradient(to top, #1f1f1f, #2a2a2a);
+      color: #888;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    footer a {
+      color: #e50914;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="img/logo (2).jpg" alt="Logo da GerminaFlix">
+    <button><a href="sobremim.html">Sobre o autor</a></button>
+  </header>
+
+  <h2>Mais Vistos</h2>
+  <div class="filmes">
+    <div class="card">
+      <img src="img/filme1.jpg" alt="Interestelar">
+      <strong>Interestelar</strong>
+      <span>Interestelar (2014)</span>
+      <a href="filme1.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt0816692/">IMDb</a>
+    </div>
+    <div class="card">
+      <img src="img/filme2.jpg" alt="A Origem">
+      <strong>A Origem</strong>
+      <span>A Origem (2010)</span>
+      <a href="filme2.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt1375666/">IMDb</a>
+    </div>
+    <div class="card">
+      <img src="img/filme3.jpg" alt="Matrix">
+      <strong>Matrix</strong>
+      <span>Matrix (1999)</span>
+      <a href="filme3.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt0133093/">IMDb</a>
+    </div>
+    <div class="card">
+      <img src="img/filme4.jpg" alt="Avatar">
+      <strong>Avatar</strong>
+      <span>Avatar (2009)</span>
+      <a href="filme4.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt0499549/">IMDb</a>
+    </div>
+    <div class="card">
+      <img src="img/filme5.jpg" alt="Vingadores: Ultimato">
+      <strong>Vingadores: Ultimato</strong>
+      <span>Vingadores: Ultimato (2019)</span>
+      <a href="filme5.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt4154796/">IMDb</a>
+    </div>
+  </div>
+
+  <h2>Recomendados</h2>
+  <div class="filmes">
+    <div class="card">
+    <img src="img/filme6.jpg" alt="Duna">
+      <strong>Duna</strong>
+      <span>Duna (2021)</span>
+      <a href="filme6.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt1160419/">IMDb</a>
+    </div>
+    <div class="card">
+    <img src="img/filme7.jpg" alt="Oppenheimer">
+      <strong>Oppenheimer</strong>
+      <span>Oppenheimer (2023)</span>
+      <a href="filme7.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt15398776/">IMDb</a>
+    </div>
+    <div class="card">
+    <img src="img/filme8.jpg" alt="Vingadores: Ultimato">
+      <strong>Parasita</strong>
+      <span>Parasita (2019)</span>
+      <a href="filme8.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt6751668/">IMDb</a>
+    </div>
+    <div class="card">
+    <img src="img/filme9.jpg" alt="Parasita">
+      <strong>Coringa</strong>
+      <span>Coringa (2019)</span>
+      <a href="filme9.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt7286456/">IMDb</a>
+    </div>
+    <div class="card">
+    <img src="img/filme10.jpg" alt="Top Gun: Maverick">
+      <strong>Top Gun: Maverick</strong>
+      <span>Top Gun: Maverick (2022)</span>
+      <a href="filme10.html">Ver Detalhes</a>
+      <a href="https://www.imdb.com/pt/title/tt1745960/">IMDb</a>
+    </div>
+  </div>
+
+ <footer>
+    © 2025 FabFlix. Projeto acadêmico.
+  </footer>
+</body>
+</html>
