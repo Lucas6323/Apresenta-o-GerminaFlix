@@ -1,0 +1,71 @@
+name: CI/CD Pipeline - GerminaFlix
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permissões necessárias para publicar no GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # ==========================================
+  # ETAPA 1: CI (Continuous Integration)
+  # Executa em push e pull_request para a main
+  # ==========================================
+  continuous-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js (Ambiente de Validação)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar Validador de HTML (W3C Validator CLI)
+        run: npm install -g html-validator-cli
+
+      - name: Executar Validação e Teste Estático (CI)
+        run: |
+          echo "Iniciando checagem dos arquivos HTML..."
+          html-validator --file=index.html --is-file
+
+  # ==========================================
+  # ETAPA 2: CD (Continuous Deployment)
+  # Executa APENAS em push na main e se o CI passou
+  # ==========================================
+  continuous-deployment:
+    needs: continuous-integration
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Empacotar Artefato para Deploy
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # Publica a raiz onde estão o index.html e os assets
+
+      - name: Realizar Deploy no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
