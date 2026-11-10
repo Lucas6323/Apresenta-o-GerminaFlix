@@ -9,7 +9,6 @@ on:
       - main
   workflow_dispatch:
 
-# Permissões necessárias para publicar no GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -22,7 +21,6 @@ concurrency:
 jobs:
   # ==========================================
   # ETAPA 1: CI (Continuous Integration)
-  # Executa em push e pull_request para a main
   # ==========================================
   continuous-integration:
     runs-on: ubuntu-latest
@@ -35,17 +33,16 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Instalar Validador de HTML (W3C Validator CLI)
-        run: npm install -g html-validator-cli
+      - name: Instalar Linter HTML (HTMLHint)
+        run: npm install -g htmlhint
 
       - name: Executar Validação e Teste Estático (CI)
         run: |
-          echo "Iniciando checagem dos arquivos HTML..."
-          html-validator --file=index.html --is-file
+          echo "Iniciando checagem estática com HTMLHint..."
+          htmlhint index.html
 
   # ==========================================
   # ETAPA 2: CD (Continuous Deployment)
-  # Executa APENAS em push na main e se o CI passou
   # ==========================================
   continuous-deployment:
     needs: continuous-integration
@@ -64,7 +61,7 @@ jobs:
       - name: Empacotar Artefato para Deploy
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Publica a raiz onde estão o index.html e os assets
+          path: '.'
 
       - name: Realizar Deploy no GitHub Pages
         id: deployment
